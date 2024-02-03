@@ -1,0 +1,33 @@
+Domain InformacionBienesRaicesDomain {
+	domainVisionStatement = "Se encarga de consolidar, procesar, analizar y entregar información de biene raices comerciales"
+
+	Subdomain CapturaDeDatosManual {
+		type = CORE_DOMAIN
+		domainVisionStatement = "Este subdominio es el encargado de obtener la información de forma manual"
+	} 
+
+	Subdomain IngestionDeDatosFuente {
+		type = CORE_DOMAIN
+		domainVisionStatement = "Este subdominio es el encargado de obtener la información de fuentes externas de manera automatizada"
+	}
+
+	Subdomain ProcesamientoDeDatos {
+		type = CORE_DOMAIN
+		domainVisionStatement = "Este subdominio es el encargado de procesar y limpiar los datos obtenidos por los fuentes manuales y automaticas"
+	}
+
+	Subdomain ValidacionDeDatos {
+		type = CORE_DOMAIN
+		domainVisionStatement = "Este subdominio es el encargado de validar y enriquecer los datos"
+	}
+
+	Subdomain AnalisisYDisponibilizacionDeDatos {
+		type = CORE_DOMAIN
+		domainVisionStatement = "Este subdominio es el encargado de implementar las herramientas de analítica y consulta de información usadas por los clientes"
+	}
+	
+	Subdomain Infraestructura {
+		type = SUPPORTING_DOMAIN
+		domainVisionStatement = "Este subdominio es el encargado de proveer la infraestructura necesaria para ingesta, transformación y analítica de datos"
+	}
+}
