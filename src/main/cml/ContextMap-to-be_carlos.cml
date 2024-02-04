@@ -1,23 +1,53 @@
 /* The DDD Cargo sample application modeled in CML. Note that we split the application into multiple bounded contexts. */
-ContextMap DDDMapPropiedadesAlpesAsIs {
+ContextMap DDDMapPropiedadesAlpesToBe {
 	contains CapturaDeDatosManualContext
 	contains IngestionDeDatosFuenteContext
-	contains ProcesamientoDeDatosContext
-	contains ValidacionDeDatosContext
-	contains DisponibilizacionDeDatosContext
+
+	contains ProcesamientoDeDatosMinoristasContext
+   	contains ProcesamientoDeDatosOficinasContext
+	contains ProcesamientoDeDatosIndustrialContext
+	contains ProcesamientoDeDatosEspecializadoContext
+
+	contains ValidacionDeDatosMinoristasContext
+   	contains ValidacionDeDatosOficinasContext
+	contains ValidacionDeDatosIndustrialContext
+	contains ValidacionDeDatosEspecializadoContext
+
+    contains DisponibilizacionDeDatosContext
 	contains AnalisisDeDatosContext
 
-	CapturaDeDatosManualContext [U]->[D] ProcesamientoDeDatosContext
+	CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosMinoristasContext{}
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosMinoristasContext
+	ProcesamientoDeDatosMinoristasContext [U]->[D] ValidacionDeDatosMinoristasContext
 
-	IngestionDeDatosFuenteContext [U]->[D] ProcesamientoDeDatosContext
+    CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosOficinasContext
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosOficinasContext
+	ProcesamientoDeDatosOficinasContext [U]->[D] ValidacionDeDatosOficinasContext
 
-	ProcesamientoDeDatosContext [U]->[D] ValidacionDeDatosContext
+    CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosIndustrialContext
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosIndustrialContext
+	ProcesamientoDeDatosIndustrialContext [U]->[D] ValidacionDeDatosIndustrialContext
 
-	ValidacionDeDatosContext [U]->[D] DisponibilizacionDeDatosContext
+    CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosEspecializadoContext
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosEspecializadoContext
+	ProcesamientoDeDatosEspecializadoContext [U]->[D] ValidacionDeDatosEspecializadoContext
 
-	ValidacionDeDatosContext [U]->[D] AnalisisDeDatosContext
+	/*ValidacionDeDatosMinoristasContext [U]->[D] DisponibilizacionDeDatosContext
+   	ValidacionDeDatosOficinasContext [U]->[D] DisponibilizacionDeDatosContext
+	ValidacionDeDatosIndustrialContext [U]->[D] DisponibilizacionDeDatosContext
+	ValidacionDeDatosEspecializadoContext [U]->[D] DisponibilizacionDeDatosContext*/
+
+	ValidacionDeDatosMinoristasContext [U]->[D] AnalisisDeDatosContext
+   	ValidacionDeDatosOficinasContext [U]->[D] AnalisisDeDatosContext
+	ValidacionDeDatosIndustrialContext [U]->[D] AnalisisDeDatosContext
+	ValidacionDeDatosEspecializadoContext [U]->[D] AnalisisDeDatosContext
+    
+    AnalisisDeDatosContext [U]->[D] DisponibilizacionDeDatosContext
 
 }
+
+
+
 
 /* The original booking application context */
 BoundedContext CapturaDeDatosManualContext {
@@ -29,13 +59,16 @@ BoundedContext IngestionDeDatosFuenteContext {
 }
 
 
-BoundedContext ProcesamientoDeDatosContext {
+BoundedContext ProcesamientoDeDatosMinoristasContext {}
+BoundedContext ProcesamientoDeDatosOficinasContext{}
+BoundedContext ProcesamientoDeDatosIndustrialContext{}
+BoundedContext ProcesamientoDeDatosEspecializadoContext{}
 
-}
+BoundedContext ValidacionDeDatosMinoristasContext {}
+BoundedContext ValidacionDeDatosOficinasContext {}
+BoundedContext ValidacionDeDatosIndustrialContext {}
+BoundedContext ValidacionDeDatosEspecializadoContext {}
 
-BoundedContext ValidacionDeDatosContext {
-
-}
 
 BoundedContext DisponibilizacionDeDatosContext {
 
