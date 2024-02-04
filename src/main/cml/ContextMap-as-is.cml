@@ -7,9 +7,9 @@ ContextMap DDDMapPropiedadesAlpesAsIs {
 	contains DisponibilizacionDeDatosContext
 	contains AnalisisDeDatosContext
 
-	CapturaDeDatosManualContext [U]->[D] ProcesamientoDeDatosContext
+	CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosContext
 
-	IngestionDeDatosFuenteContext [U]->[D] ProcesamientoDeDatosContext
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosContext
 
 	ProcesamientoDeDatosContext [U]->[D] ValidacionDeDatosContext
 
@@ -21,26 +21,26 @@ ContextMap DDDMapPropiedadesAlpesAsIs {
 
 /* The original booking application context */
 BoundedContext CapturaDeDatosManualContext {
-
+	domainVisionStatement = "Este contexto es el encargado de obtener la información de forma manual"
 }
 
 BoundedContext IngestionDeDatosFuenteContext {
-
+	domainVisionStatement = "Este contexto es el encargado de obtener la información de fuentes externas de manera automatizada"
 }
 
 
 BoundedContext ProcesamientoDeDatosContext {
-
+	domainVisionStatement = "Este contexto es el encargado de procesar y limpiar los datos obtenidos por los fuentes manuales y automaticas"
 }
 
 BoundedContext ValidacionDeDatosContext {
-
+	domainVisionStatement = "Este contexto es el encargado de validar y enriquecer los datos"
 }
 
 BoundedContext DisponibilizacionDeDatosContext {
-
+	domainVisionStatement = "Este contexto es el encargado de implementar la consulta de información usadas por los clientes"
 }
 
 BoundedContext AnalisisDeDatosContext {
-
+	domainVisionStatement = "Este contexto es el encargado de implementar las herramientas de analítica usadas por los clientes"
 }

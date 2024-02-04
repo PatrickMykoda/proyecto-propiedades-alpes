@@ -1,0 +1,80 @@
+/* The DDD Cargo sample application modeled in CML. Note that we split the application into multiple bounded contexts. */
+ContextMap DDDMapPropiedadesAlpesAsIs {
+	contains CapturaDeDatosManualContext
+	contains IngestionDeDatosFuenteContext
+	contains ProcesamientoDeDatosDeRegistroContext
+	contains ProcesamientoDeDatosContractualesContext
+	contains ProcesamientoDeDatosGeograficosContext
+	contains ProcesamientoDeDatosCatastralesContext
+	contains ValidacionDeDatosContext
+	contains DisponibilizacionDeDatosContext
+	contains AnalisisDeDatosContext
+
+	CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosDeRegistroContext
+
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosDeRegistroContext
+
+	CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosContractualesContext
+
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosContractualesContext
+
+	CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosGeograficosContext
+
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosGeograficosContext
+
+	CapturaDeDatosManualContext [U, OHS]->[D, ACL] ProcesamientoDeDatosCatastralesContext
+
+	IngestionDeDatosFuenteContext [U, OHS]->[D, ACL] ProcesamientoDeDatosCatastralesContext
+
+	ProcesamientoDeDatosDeRegistroContext [U]->[D, ACL] ValidacionDeDatosContext
+
+	ProcesamientoDeDatosContractualesContext [U]->[D, ACL] ValidacionDeDatosContext
+
+	ProcesamientoDeDatosGeograficosContext [U]->[D, ACL] ValidacionDeDatosContext
+
+	ProcesamientoDeDatosCatastralesContext [U]->[D, ACL] ValidacionDeDatosContext
+
+
+	ValidacionDeDatosContext [U]->[D] DisponibilizacionDeDatosContext
+
+	ValidacionDeDatosContext [U]->[D] AnalisisDeDatosContext
+
+}
+
+
+BoundedContext CapturaDeDatosManualContext {
+	domainVisionStatement = "Este contexto es el encargado de obtener la información de forma manual"
+}
+
+BoundedContext IngestionDeDatosFuenteContext {
+	domainVisionStatement = "Este contexto es el encargado de obtener la información de fuentes externas de manera automatizada"
+}
+
+BoundedContext ProcesamientoDeDatosDeRegistroContext {
+	domainVisionStatement = "Este contexto es el encargado de procesar y limpiar los datos de registro obtenidos por los fuentes manuales y automaticas"
+}
+
+
+BoundedContext ProcesamientoDeDatosContractualesContext {
+	domainVisionStatement = "Este contexto es el encargado de procesar y limpiar los datos contractuales obtenidos por los fuentes manuales y automaticas"
+}
+
+BoundedContext ProcesamientoDeDatosGeograficosContext {
+	domainVisionStatement = "Este contexto es el encargado de procesar y limpiar los datos geográficos obtenidos por los fuentes manuales y automaticas"
+}
+
+BoundedContext ProcesamientoDeDatosCatastralesContext {
+	domainVisionStatement = "Este contexto es el encargado de procesar y limpiar los datos catastrales obtenidos por los fuentes manuales y automaticas"
+}
+
+BoundedContext ValidacionDeDatosContext {
+	domainVisionStatement = "Este contexto es el encargado de validar y enriquecer los datos"
+}
+
+BoundedContext DisponibilizacionDeDatosContext {
+	domainVisionStatement = "Este contexto es el encargado de implementar la consulta de información usadas por los clientes"
+}
+
+BoundedContext AnalisisDeDatosContext {
+	domainVisionStatement = "Este contexto es el encargado de implementar las herramientas de analítica usadas por los clientes"
+}
