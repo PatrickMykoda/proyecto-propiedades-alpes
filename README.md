@@ -1,12 +1,12 @@
 Este es el repositorio del grupo ANM para el proyecto "Expansión Global" de la empresa Propiedades de los Alpes.
 
-# Estructura de directorios:  
-## Los archivos relevantes para la entrega 1 se encuentran en el siguiente directorio:
-- src/main
-  - cml
-    - ContextMap-as-is.cml => contiene el mapa de contexto as-is
-    - ContextMap-to-be.cml => contiene el mapa de contexto to-be
-    - dominios-subdominios.cml => contiene la documentación de los dominios y subdominios
+# Entrega 1: Diseño y arquitectura de dominio
+
+=> Los tres entregables documentación de dominios, mapa de contexto as-is y mapa de context to-be se encuentran en la carpeta cml dentro de src/main:
+![imagen](https://github.com/PatrickMykoda/proyecto-propiedades-alpes/assets/98788512/539a245d-770e-4ada-81ff-bcab7d988644)
+
+=> El entregable lenguaje ubicuo se encuentra en la carpeta lenguaje-ubico dentro de src/main. En el archivo Event Storming - Grupo ANM.jpg tiene una vista completa del lenguaje ubicuo mientras los otros archivos jpg enfocan cada uno una parte específica del flujo.
+![imagen](https://github.com/PatrickMykoda/proyecto-propiedades-alpes/assets/98788512/cbb2aac3-4cdc-4fbb-b2cc-d0ae846ce592)
 
 # 1. Documentación de dominios y subdominios
 En el modelo (dominios-subdominios.cml) que describe los dominios y subdominios para un proyecto denominado **"Propiedades de los Alpes"**, enfocado en proveer información sobre bienes raíces comerciales. A continuación, se detalla cada parte del código y su significado en el contexto del proyecto:
